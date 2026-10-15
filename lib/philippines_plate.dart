@@ -15,3 +15,4 @@ export 'src/philippines_serial_generator.dart';
 export 'src/philippines_strips.dart';
 export 'src/philippines_themes.dart';
 export 'src/philippines_validators.dart';
+export 'src/philippines_regions.dart';

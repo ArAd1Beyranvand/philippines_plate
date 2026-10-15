@@ -3,6 +3,7 @@ import 'package:plate_core/plate_core.dart';
 import 'philippines_alphabets.dart';
 import 'philippines_country.dart';
 import 'philippines_missions.dart';
+import 'philippines_regions.dart';
 import 'philippines_strips.dart';
 
 /// Where the ink sits on a 2018-series plate, in millimetres.
@@ -109,6 +110,7 @@ abstract final class PhilippinesPlates {
       panel: const PlatePanel(box: PlateBox(0, 0, 0, _Layout.carHeight)),
       slots: _carRow(PhilippinesAlphabets.letters, digits),
       textGroups: _carGroups('letters', 'number', digits),
+      resolveRegion: PhilippinesRegions.captionOf,
     );
   }
 
