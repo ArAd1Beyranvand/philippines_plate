@@ -1,12 +1,8 @@
 import 'package:flutter/widgets.dart';
 
-/// The colours a Philippine plate is printed in, sampled as the modal colour
-/// of a region of the Commons artwork the article shows for each category
-/// (`NBC_1234.png`, `NBC_4321.png`, `SAB_1234.png`,
-/// `Philippine_Hybrid_or_Electric_vehicle_plate.png`,
-/// `002_0020_diplomatic.png`, `Motor_plate_*.png`, `REGION_*.png`). The
-/// artwork is flat vector fills, so these are the drawn values, not a
-/// photograph's. The LTO publishes no colour values.
+/// Modal colour of a region of the Commons artwork the article shows for each
+/// category. The artwork is flat vector fills, so these are the drawn values;
+/// the LTO publishes none.
 abstract final class PhilippinesColors {
   static const Color white = Color(0xFFFFFFFF);
 

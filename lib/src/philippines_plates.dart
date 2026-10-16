@@ -6,11 +6,9 @@ import 'philippines_missions.dart';
 import 'philippines_regions.dart';
 import 'philippines_strips.dart';
 
-/// Where the ink sits on a 2018-series plate, in millimetres.
-///
-/// Measured off the Commons artwork the article shows per category, which is
-/// drawn at exactly the documented sizes (4680×1680 px = 390×140 mm,
-/// 2820×1620 px = 235×135 mm), so each image maps straight onto the canvas.
+/// Where the ink sits on a 2018-series plate, in millimetres, measured off the
+/// Commons artwork, which is drawn at the documented sizes (4680×1680 px =
+/// 390×140 mm, 2820×1620 px = 235×135 mm).
 ///
 /// Car (`NBC_1234`, `ABC_888`, `ABC_01`, `002_0020_diplomatic`, vintage):
 /// * ink rows y 34.1..106.1 (72 tall, centred on the plate);
@@ -39,8 +37,7 @@ import 'philippines_strips.dart';
 /// ink centres (car y 70.1, motorcycle y 66.65). Pitch and horizontal extent
 /// match the reference.
 ///
-/// Not drawn: the per-plate QR code and the mounting slots. Neither is part
-/// of the registration, and a QR code is unique to its plate.
+/// Not drawn: the per-plate QR code and the mounting slots.
 abstract final class _Layout {
   // Car.
   static const double carWidth = 390;
@@ -74,8 +71,6 @@ abstract final class _Layout {
   static const double stripGapRight = 134.5;
 }
 
-/// The Philippines' 2018-series plates.
-///
 /// * [car] — `ABC 1234` on 390×140; the OMVSP vanity `ABC 123` and `ABC 12`
 ///   are the same plate with fewer digits.
 /// * [vintage] — the car plate with a `VINTAGE VEHICLE <year>` byline.

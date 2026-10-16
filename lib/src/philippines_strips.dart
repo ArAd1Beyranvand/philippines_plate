@@ -26,11 +26,9 @@ class PhilippinesStrip {
 /// Every strip the article's table lists. Metro Manila (NCR) and government
 /// motorcycles carry none: use `PhilippinesPlates.motorcycle()` without one.
 ///
-/// Since 2025 the LTO also issues a region another region's strip when its
-/// own stock runs short ("alternatively used by" in the article: Central
-/// Visayas on pink-top, Central Luzon on green-top, gray-bottom and
-/// orange-top, and so on). A strip therefore names the region it was made
-/// for, not every region that may carry it.
+/// The LTO also issues a region another region's strip when its own stock runs
+/// short, so a strip names the region it was made for, not every region that
+/// may carry it.
 abstract final class PhilippinesStrips {
   static const PhilippinesStrip cordillera = PhilippinesStrip(
     id: 'car',

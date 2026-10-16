@@ -1,22 +1,16 @@
 import 'package:plate_core/plate_core.dart';
 
 /// The first three digits of a diplomatic plate: the country or organisation
-/// the vehicle belongs to, in the order the Philippines established relations.
+/// the vehicle belongs to (countries 001–075, organisations 200–225).
 ///
-/// Taken from the article's two tables (countries 001–075, organisations
-/// 200–225). Code `036` is deliberately absent and refused: [name] throws for
-/// it, [isRefused] is true for it, and [restriction] carries it into the
-/// diplomatic spec so `plate_core` refuses it in the controller, the input
-/// machine, the canvas and the validators. Nothing in this package will ever
-/// store it.
+/// Code `036` is deliberately absent and refused: [name] throws for it,
+/// [isRefused] is true for it, and [restriction] carries it into the
+/// diplomatic spec so `plate_core` refuses it everywhere.
 abstract final class PhilippinesMissions {
-  /// The error every layer shows for a refused code.
   static const String notFound = 'COUNTRY NOT FOUND';
 
-  /// Codes no layer may store.
   static const List<String> refused = <String>['036'];
 
-  /// The restriction on the diplomatic spec's `mission` register.
   static const PlateRestriction restriction = PlateRestriction(
     group: 'mission',
     values: refused,
@@ -34,7 +28,6 @@ abstract final class PhilippinesMissions {
     return _missions[code];
   }
 
-  /// Every listed code and its mission, refused codes excluded.
   static Map<String, String> get all => Map.unmodifiable(_missions);
 
   static const Map<String, String> _missions = <String, String>{

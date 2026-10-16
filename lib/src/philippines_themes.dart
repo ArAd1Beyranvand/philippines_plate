@@ -3,12 +3,11 @@ import 'package:flutter/widgets.dart';
 
 import 'philippines_colors.dart';
 
-/// The LTO liveries. Each is one ink on one field with the rim in the ink, so
-/// they are one helper and five calls. Car and motorcycle plates share them.
+/// The LTO liveries: one ink on one field, rim in the ink. Car and motorcycle
+/// plates share them.
 ///
-/// The rim is 2.84 mm on the 140 mm car artwork and 2.45 mm on the 135 mm
-/// motorcycle one; the corner radius 8.3 and 8.7 mm. Both round to 0.02 and
-/// 0.06 of the height, so one ratio serves both.
+/// Rim 2.84 mm on the 140 mm car and 2.45 mm on the 135 mm motorcycle; corner
+/// radius 8.3 and 8.7 mm. Both round to 0.02 and 0.06 of the height.
 abstract final class PhilippinesThemes {
   static PlateTheme _livery({required Color ink, Color? field}) => PlateTheme(
     plateBackground: field ?? PhilippinesColors.white,

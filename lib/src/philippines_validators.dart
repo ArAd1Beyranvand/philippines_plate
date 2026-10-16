@@ -7,17 +7,14 @@ final RegExp _letters = RegExp(r'^[A-Z]+$');
 /// Judges a `PhilippinesPlates.car` or `vintage` value. Reports, never bars a
 /// keystroke; gated on the number.
 ///
-/// Checks the series rules the article states: three letters; the digits are
-/// never all zero (OMVSP excludes `00`, `000` and `0000`); a first letter `S`
-/// is the government series, so a plate not marked [government] reports it.
-/// On a `vintage` spec the letters end in TX, TY or TZ and the byline year is
-/// four digits. Does not check which region a prefix belongs to: every letter
-/// A–Z is allocated (S to none), so there is nothing to refuse.
+/// Three letters; digits never all zero (OMVSP excludes `00`, `000`, `0000`);
+/// a first letter `S` is the government series, reported unless [government].
+/// On a `vintage` spec the letters end in TX, TY or TZ and the year is four
+/// digits. The region of a prefix is not checked: every letter is allocated.
 class PhilippinesValidator extends GatedPlateValidator {
   const PhilippinesValidator({this.government = false});
 
-  /// Whether the plate is a government (red) one, the only kind whose letters
-  /// may start with S.
+  /// The only kind of plate whose letters may start with S.
   final bool government;
 
   @override
@@ -83,8 +80,8 @@ class PhilippinesMotorcycleValidator extends GatedPlateValidator {
 }
 
 /// Judges a `PhilippinesPlates.diplomatic` value: a listed mission code and a
-/// four-digit serial. Refuses `036` on its own account as well, so it holds
-/// even against a spec built without [PhilippinesMissions.restriction].
+/// four-digit serial. Refuses `036` itself, so it holds even against a spec
+/// built without [PhilippinesMissions.restriction].
 class PhilippinesDiplomaticValidator extends GatedPlateValidator {
   const PhilippinesDiplomaticValidator();
 
