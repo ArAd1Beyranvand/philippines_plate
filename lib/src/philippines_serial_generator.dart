@@ -22,6 +22,7 @@ abstract final class PhilippinesSerialGenerator {
     final List<String?> values = List<String?>.filled(spec.slots.length, null);
     String letter() => _alphabet[rnd.nextInt(_alphabet.length)];
     String digit() => rnd.nextInt(10).toString();
+    String leadingDigit(int i) => i == 0 ? '${1 + rnd.nextInt(9)}' : digit();
     void fill(String key, String Function(int i) pick) {
       final List<int> indices = spec.indicesOfGroup(key);
       for (int n = 0; n < indices.length; n++) {
@@ -38,7 +39,7 @@ abstract final class PhilippinesSerialGenerator {
       } while (first == 'S');
       return first;
     });
-    fill('number', (i) => i == 0 ? '${1 + rnd.nextInt(9)}' : digit());
+    fill('number', leadingDigit);
     fill('year', (i) => '${1950 + rnd.nextInt(40)}'[i]);
     final List<String> missions = PhilippinesMissions.all.keys.toList();
     final String mission = missions[rnd.nextInt(missions.length)];
@@ -46,9 +47,7 @@ abstract final class PhilippinesSerialGenerator {
     final bool diplomatic = spec.indicesOfGroup('mission').isNotEmpty;
     fill(
       'serial',
-      (i) => diplomatic
-          ? (i == 0 ? '${1 + rnd.nextInt(9)}' : digit())
-          : (i < 3 ? digit() : letter()),
+      (i) => diplomatic ? leadingDigit(i) : (i < 3 ? digit() : letter()),
     );
     return values;
   }

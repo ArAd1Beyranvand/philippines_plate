@@ -3,6 +3,9 @@ import 'package:plate_core/plate_core.dart';
 import 'philippines_missions.dart';
 
 final RegExp _letters = RegExp(r'^[A-Z]+$');
+final RegExp _allZeros = RegExp(r'^0+$');
+final RegExp _hasLetter = RegExp('[A-Z]');
+final RegExp _hasDigit = RegExp('[0-9]');
 
 /// Judges a `PhilippinesPlates.car` or `vintage` value. Reports, never bars a
 /// keystroke; gated on the number.
@@ -36,7 +39,7 @@ class PhilippinesValidator extends GatedPlateValidator {
       return const PlateValidation.invalid(reasonLetters);
     }
     if (!isDigits(number)) return const PlateValidation.invalid(reasonNumber);
-    if (RegExp(r'^0+$').hasMatch(number)) {
+    if (_allZeros.hasMatch(number)) {
       return const PlateValidation.invalid(reasonZero);
     }
     if (letters.startsWith('S') && !government) {
@@ -71,8 +74,7 @@ class PhilippinesMotorcycleValidator extends GatedPlateValidator {
   PlateValidation judge(PlateEntry entry) {
     final String serial = entry.group('serial');
     if (serial.length != 6) return const PlateValidation.invalid(reasonLength);
-    if (!RegExp('[A-Z]').hasMatch(serial) ||
-        !RegExp('[0-9]').hasMatch(serial)) {
+    if (!_hasLetter.hasMatch(serial) || !_hasDigit.hasMatch(serial)) {
       return const PlateValidation.invalid(reasonMix);
     }
     return const PlateValidation.valid();

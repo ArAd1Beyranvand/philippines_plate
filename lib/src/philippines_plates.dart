@@ -224,13 +224,11 @@ abstract final class PhilippinesPlates {
 
   /// The strip along its edge, cut by a field gap at the centre.
   static PlateSection _stripped(PhilippinesStrip strip) {
+    final PlateSection ink = PlateSection.fill(PlateFill.color(strip.color));
     final PlateSection band = PlateSection.columns(<PlatePart>[
-      PlatePart(
-        PlateSection.fill(PlateFill.color(strip.color)),
-        end: _Layout.stripGapLeft,
-      ),
+      PlatePart(ink, end: _Layout.stripGapLeft),
       const PlatePart(PlateSection.plain, end: _Layout.stripGapRight),
-      PlatePart(PlateSection.fill(PlateFill.color(strip.color))),
+      PlatePart(ink),
     ]);
     return switch (strip.edge) {
       PhilippinesStripEdge.top => PlateSection.rows(<PlatePart>[
