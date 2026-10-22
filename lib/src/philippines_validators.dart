@@ -26,8 +26,7 @@ class PhilippinesValidator extends GatedPlateValidator {
   static const String reasonLetters = 'A plate starts with three letters.';
   static const String reasonNumber = 'The number is all digits.';
   static const String reasonZero = 'The number is never all zeros.';
-  static const String reasonGovernment =
-      'S is reserved for government vehicles.';
+  static const String reasonGovernment = 'S is reserved for government vehicles.';
   static const String reasonVintage = 'A vintage plate ends in TX, TY or TZ.';
   static const String reasonYear = 'The year is four digits.';
 
@@ -67,8 +66,7 @@ class PhilippinesMotorcycleValidator extends GatedPlateValidator {
   String get gateGroup => 'serial';
 
   static const String reasonLength = 'A motorcycle plate has six characters.';
-  static const String reasonMix =
-      'A motorcycle plate mixes letters and digits.';
+  static const String reasonMix = 'A motorcycle plate mixes letters and digits.';
 
   @override
   PlateValidation judge(PlateEntry entry) {

@@ -25,9 +25,7 @@ abstract final class PhilippinesThemes {
   static final PlateTheme private = _livery(ink: PhilippinesColors.black);
 
   /// Green on white: electric and hybrid vehicles.
-  static final PlateTheme electric = _livery(
-    ink: PhilippinesColors.electricGreen,
-  );
+  static final PlateTheme electric = _livery(ink: PhilippinesColors.electricGreen);
 
   /// Black on yellow: public utility and for-hire vehicles.
   static final PlateTheme publicUtility = _livery(
@@ -36,12 +34,8 @@ abstract final class PhilippinesThemes {
   );
 
   /// Red on white: government vehicles.
-  static final PlateTheme government = _livery(
-    ink: PhilippinesColors.governmentRed,
-  );
+  static final PlateTheme government = _livery(ink: PhilippinesColors.governmentRed);
 
   /// Blue on white: diplomatic vehicles.
-  static final PlateTheme diplomatic = _livery(
-    ink: PhilippinesColors.diplomaticBlue,
-  );
+  static final PlateTheme diplomatic = _livery(ink: PhilippinesColors.diplomaticBlue);
 }

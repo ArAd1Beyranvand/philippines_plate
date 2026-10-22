@@ -13,11 +13,7 @@ import 'philippines_missions.dart';
 abstract final class PhilippinesSerialGenerator {
   static const String _alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-  static List<String?> generate(
-    PlateSpec spec, {
-    Random? random,
-    bool government = false,
-  }) {
+  static List<String?> generate(PlateSpec spec, {Random? random, bool government = false}) {
     final Random rnd = random ?? Random();
     final List<String?> values = List<String?>.filled(spec.slots.length, null);
     String letter() => _alphabet[rnd.nextInt(_alphabet.length)];
@@ -45,10 +41,7 @@ abstract final class PhilippinesSerialGenerator {
     final String mission = missions[rnd.nextInt(missions.length)];
     fill('mission', (i) => mission[i]);
     final bool diplomatic = spec.indicesOfGroup('mission').isNotEmpty;
-    fill(
-      'serial',
-      (i) => diplomatic ? leadingDigit(i) : (i < 3 ? digit() : letter()),
-    );
+    fill('serial', (i) => diplomatic ? leadingDigit(i) : (i < 3 ? digit() : letter()));
     return values;
   }
 }

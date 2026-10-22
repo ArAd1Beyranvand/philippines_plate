@@ -164,9 +164,7 @@ abstract final class PhilippinesPlates {
   /// Six characters, any mix of letters and digits (`123NBC`, `N123BC`…), on
   /// a plain face or with [strip]. Group `serial`.
   static PlateSpec motorcycle({PhilippinesStrip? strip}) {
-    final String id = strip == null
-        ? 'ph.motorcycle'
-        : 'ph.motorcycle.${strip.id}';
+    final String id = strip == null ? 'ph.motorcycle' : 'ph.motorcycle.${strip.id}';
     return _motorcycles[id] ??= PlateSpec(
       id: id,
       country: PhilippinesCountry.philippines,
@@ -213,14 +211,11 @@ abstract final class PhilippinesPlates {
     ];
   }
 
-  static List<PlateTextGroup> _carGroups(
-    String first,
-    String second,
-    int digits,
-  ) => <PlateTextGroup>[
-    PlateTextGroup(const <int>[0, 1, 2], key: first),
-    PlateTextGroup(<int>[for (int i = 3; i < 3 + digits; i++) i], key: second),
-  ];
+  static List<PlateTextGroup> _carGroups(String first, String second, int digits) =>
+      <PlateTextGroup>[
+        PlateTextGroup(const <int>[0, 1, 2], key: first),
+        PlateTextGroup(<int>[for (int i = 3; i < 3 + digits; i++) i], key: second),
+      ];
 
   /// The strip along its edge, cut by a field gap at the centre.
   static PlateSection _stripped(PhilippinesStrip strip) {

@@ -14,11 +14,7 @@ void main() {
     expect(valid(v, PhilippinesPlates.car(), 'NBC0000'), isFalse);
     expect(valid(v, PhilippinesPlates.car(), 'SAB1234'), isFalse);
     expect(
-      valid(
-        const PhilippinesValidator(government: true),
-        PhilippinesPlates.car(),
-        'SAB1234',
-      ),
+      valid(const PhilippinesValidator(government: true), PhilippinesPlates.car(), 'SAB1234'),
       isTrue,
     );
     expect(valid(v, PhilippinesPlates.car(digits: 2), 'ABC01'), isTrue);

@@ -6,14 +6,10 @@ import 'package:plate_core/plate_core.dart';
 void main() {
   const notFound = 'COUNTRY NOT FOUND';
   final spec = PhilippinesPlates.diplomatic;
-  List<String?> values(String s) =>
-      s.split('').map((c) => c == '_' ? null : c).toList();
+  List<String?> values(String s) => s.split('').map((c) => c == '_' ? null : c).toList();
 
   test('registry: name() throws, all omits it', () {
-    expect(
-      () => PhilippinesMissions.name('036'),
-      throwsA(isA<PlateRestrictionException>()),
-    );
+    expect(() => PhilippinesMissions.name('036'), throwsA(isA<PlateRestrictionException>()));
     expect(PhilippinesMissions.all.containsKey('036'), isFalse);
     expect(PhilippinesMissions.name('002'), isNotNull);
   });
@@ -41,10 +37,7 @@ void main() {
 
   test('validator reports it, even on a spec without the restriction', () {
     final entry = PlateEntry(spec: spec, values: values('0361234'));
-    expect(
-      const PhilippinesDiplomaticValidator().validate(entry).reason,
-      notFound,
-    );
+    expect(const PhilippinesDiplomaticValidator().validate(entry).reason, notFound);
     final bare = PlateSpec(
       id: 'bare',
       country: spec.country,
@@ -64,9 +57,6 @@ void main() {
 
   test('a listed mission validates', () {
     final entry = PlateEntry(spec: spec, values: values('0020020'));
-    expect(
-      const PhilippinesDiplomaticValidator().validate(entry).isValid,
-      isTrue,
-    );
+    expect(const PhilippinesDiplomaticValidator().validate(entry).isValid, isTrue);
   });
 }
